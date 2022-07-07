@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 
 namespace Entities.Concrate
 {
-    public class Car
+    public class Car : IEntity
     {
         // Özellik olarak : Id, BrandId, ColorId, ModelYear, DailyPrice, Description alanlarını ekleyiniz. (Brand = Marka)
         public int Id { get; set; }

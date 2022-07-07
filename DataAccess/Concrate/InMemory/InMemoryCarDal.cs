@@ -30,12 +30,18 @@ namespace DataAccess.Concrate.InMemory
         
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            Car carToUpdate = _car.SingleOrDefault(c => c.Id == car.Id);
+            carToUpdate.BrandId = car.BrandId;
+            carToUpdate.ColorId = car.ColorId;
+            carToUpdate.ModelYear = car.ModelYear; 
+            carToUpdate.DailyPrice = car.DailyPrice;
+            carToUpdate.Description = car.Description; 
         }
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            Car carToDelete = _car.SingleOrDefault(c => c.Id == car.Id);
+            _car.Remove(carToDelete);
         }
 
         public List<Car> GetAll()
