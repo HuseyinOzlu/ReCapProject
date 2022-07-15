@@ -10,16 +10,11 @@ namespace Entities.Concrate
     {
         // Özellik olarak : Id, BrandId, ColorId, ModelYear, DailyPrice, Description alanlarını ekleyiniz. (Brand = Marka)
         public int Id { get; set; }
-        
-        public int BrandId { get; set; }
-        
-        public int ColorId { get; set; }
-        
-        public int ModelYear { get; set; }
-        
-        public int DailyPrice { get; set; }
-        
+        public int Model_Year { get; set; }
+        public float Daily_Price { get; set; }
         public string Description  { get; set; }
+        public Brand Brands { get; set; }
+        public Color Colors { get; set; }
 
     }
 }
