@@ -18,9 +18,9 @@ namespace Business.Concrate
             _car = car;
         }
 
-        public void Add(Car car)
+        public void Add(Car car, Brand brand)
         {
-            if (car.Daily_Price > 0 && car.Brands.BrandName.Length >= 2)
+            if (car.Daily_Price > 0 && brand.BrandName.Length >= 2)
             {
                 _car.Add(car);
             }
