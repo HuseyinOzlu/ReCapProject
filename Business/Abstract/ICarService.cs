@@ -13,6 +13,6 @@ namespace Business.Abstract
         // GetCarsByBrandId , GetCarsByColorId servislerini yazınız.
         List<Car> GetCarsByBrandId(int id);
         List<Car> GetCarsByColorId(int id);
-        void Add(Car car, Brand brand);
+        void Add(Car car);
     }
 }

@@ -12,7 +12,7 @@ namespace Entities.Concrate
         public int Id { get; set; }
         public string Cars_Name { get; set; }
         public int Model_Year { get; set; }
-        public float Daily_Price { get; set; }
+        public double Daily_Price { get; set; }
         public string Description  { get; set; }
         public int BrandsId { get; set; }
         public int ColorsId { get; set; }

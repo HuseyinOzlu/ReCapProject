@@ -18,8 +18,10 @@ namespace Business.Concrate
             _car = car;
         }
 
-        public void Add(Car car, Brand brand)
+        public void Add(Car car)
         {
+            _car.Add(car);
+            /*
             if (car.Daily_Price > 0 && brand.BrandName.Length >= 2)
             {
                 _car.Add(car);
@@ -28,6 +30,8 @@ namespace Business.Concrate
             {
                 Console.WriteLine("Error, Car didn't added.\nPlease check BrandName(BrandName must be min. 2 charecters) and DailyPrice(DailyPrice must be more than 0)");
             }
+            */
+
         }
 
         public List<Car> GetAll()
