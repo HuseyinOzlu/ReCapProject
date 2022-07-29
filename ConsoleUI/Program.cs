@@ -1,4 +1,5 @@
 ﻿using Business.Concrate;
+using Core.Utilities.Results;
 using DataAccess.Concrate.EntityFramework;
 using DataAccess.Concrate.InMemory;
 using Entities.Concrate;
@@ -11,10 +12,15 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-
-            foreach (var car in carManager.GetAll())
+            
+            var result = carManager.GetAll();
+            if (result.Success == true)
             {
-                Console.WriteLine(car.Cars_Name);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.Cars_Name);
+                }
+                Console.WriteLine(result.Message);
             }
             //addCar(carManager);
 

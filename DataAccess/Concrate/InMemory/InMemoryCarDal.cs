@@ -70,5 +70,15 @@ namespace DataAccess.Concrate.InMemory
         {
             throw new NotImplementedException();
         }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetCarsByBrandId(int brandId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

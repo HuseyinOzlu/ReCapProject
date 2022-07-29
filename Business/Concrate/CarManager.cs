@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrate;
 using System;
@@ -18,35 +20,53 @@ namespace Business.Concrate
             _car = car;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
-            _car.Add(car);
-            /*
-            if (car.Daily_Price > 0 && brand.BrandName.Length >= 2)
+            Brand brand = new Brand();
+            
+            if (car.Daily_Price > 0)
             {
-                _car.Add(car);
+                if (brand.BrandName.Length >= 2)
+                {
+                    _car.Add(car);
+                    return new SuccessResult(MessagesTR.CarAdded);
+                }
+                else
+                {
+                    return new ErrorResult(MessagesTR.BrandNameWrong);
+                }
             }
             else
             {
-                Console.WriteLine("Error, Car didn't added.\nPlease check BrandName(BrandName must be min. 2 charecters) and DailyPrice(DailyPrice must be more than 0)");
+                return new ErrorResult(MessagesTR.CarDailyPriceWrong);
             }
-            */
 
         }
 
-        public List<Car> GetAll()
+        public IResult Delete(Car car)
         {
-            return _car.GetAll();
+            return new SuccessResult(MessagesTR.CarDeleted);
         }
 
-        public List<Car> GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_car.GetAll(), MessagesTR.CarListed);
         }
 
-        public List<Car> GetCarsByColorId(int id)
+        public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Car>>(MessagesTR.CarListedByBrand);
+        }
+
+        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_car.GetCarsByColorId(id),MessagesTR.CarListedByColor);
+        }
+
+        public IResult Update(Car car)
+        {
+            _car.Update(car);
+            return new SuccessResult(MessagesTR.CarUpdated);
         }
     }
 }
