@@ -11,8 +11,28 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            listCars();
             CarManager carManager = new CarManager(new EfCarDal());
-            
+            //addCar(carManager);
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //CustomerAdd(customerManager);
+        }
+
+        private static void CustomerAdd(CustomerManager customerManager)
+        {
+            Customers newCustomers = new Customers
+            {
+                CompanyName = "My Busines",
+                CustomerId = 1,
+                UserId = 1
+            };
+            customerManager.Add(newCustomers);
+        }
+
+        private static void listCars()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+
             var result = carManager.GetAll();
             if (result.Success == true)
             {
@@ -22,11 +42,7 @@ namespace ConsoleUI
                 }
                 Console.WriteLine(result.Message);
             }
-            //addCar(carManager);
-
         }
-
-
 
         private static void addCar(CarManager carManager)
         {
