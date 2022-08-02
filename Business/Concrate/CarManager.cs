@@ -26,7 +26,7 @@ namespace Business.Concrate
             
             if (car.Daily_Price > 0)
             {
-                if (brand.BrandName.Length >= 2)
+                if (brand.Brand_name.Length >= 2)
                 {
                     _car.Add(car);
                     return new SuccessResult(MessagesTR.CarAdded);

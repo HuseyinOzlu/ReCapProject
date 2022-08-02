@@ -10,6 +10,6 @@ namespace Entities.Concrate
     public class Color :IEntity
     {
         public int Id { get; set; }
-        public string ColorName { get; set; }
+        public string Color_name { get; set; }
     }
 }
