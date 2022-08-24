@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
+using Core.Aspects.Autofac.Validation;
 using DataAccess.Abstract;
 using Entities.Concrate;
 using System;
@@ -8,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Business.Concrate
 {
@@ -19,28 +22,12 @@ namespace Business.Concrate
         {
             _car = car;
         }
-
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            Brand brand = new Brand();
-            
-            if (car.Daily_Price > 0)
-            {
-                if (brand.Brand_name.Length >= 2)
-                {
-                    _car.Add(car);
-                    return new SuccessResult(MessagesTR.CarAdded);
-                }
-                else
-                {
-                    return new ErrorResult(MessagesTR.BrandNameWrong);
-                }
-            }
-            else
-            {
-                return new ErrorResult(MessagesTR.CarDailyPriceWrong);
-            }
+            _car.Add(car);
 
+            return new SuccessResult(MessagesTR.CarAdded);
         }
 
         public IResult Delete(Car car)
