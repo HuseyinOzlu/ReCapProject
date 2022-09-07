@@ -27,7 +27,7 @@ namespace Business.Concrate
         {
             _car.Add(car);
 
-            return new SuccessResult(MessagesTR.CarAdded);
+            return new SuccessResult(IMessages.CarAdded);
         }
 
         public IResult Delete(Car car)

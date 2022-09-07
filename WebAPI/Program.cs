@@ -30,6 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//System.ArgumentException: 'The type 'DataAccess.Concrate.EntityFramework.EfRentalDal' is not assignable to service 'DataAccess.Abstract.ICustomerDal'.'
 
 app.UseHttpsRedirection();
 
